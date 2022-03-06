@@ -19,6 +19,7 @@ class Graph:
     #         print("{0}\t\t{1}".format(i, dist[i]))
 
     def bellman_ford(self, src, p):
+        print("================================== START OF THE FUNCTION ===================================")
 
         # Step 1: fill the distance array and predecessor array
         dist = [float("Inf")] * self.V
@@ -31,13 +32,16 @@ class Graph:
                 if dist[s] != float("Inf") and dist[s] + w < dist[d]:
                     dist[d] = dist[s] + w
             print("process cpu util in percentage is while in for loop : ",p.cpu_times())
+            print("process cpu util excluding the IO/Blockstate while in for loop : ",sum(p.cpu_times()[:2]))
             print("process memory in percentage is while in for loop : ", p.memory_info() )
             print("process cpu_percent in percentage is : ", p.cpu_percent(interval=1.0) )
             #print("process IO counters : ", p.io_counters())
             #print("Number of cpu s : ", p.cpu_num() )
             print("process number of context switches is : ", p.num_ctx_switches() )
             print("process memory_full info : ", p.memory_full_info() )
-            print("process memory in percentage is : ", p.memory_percent())
+            print("process RSS(aka Resident Set Size) memory in percentage is : ", p.memory_percent(memtype="rss"))
+            print("process VMS(aka Virtual Memory Size) memory in percentage is : ", p.memory_percent(memtype="vms"))
+            print("process USS(aka Unique Set Size) memory in percentage is : ", p.memory_percent(memtype="uss"))
             #print("process memory maps : ", p.memory_maps() )
             print("Number of open files : ", p.open_files() )
             print("=====================================================================")
@@ -52,7 +56,7 @@ class Graph:
                 print("Graph contains negative weight cycle")
                 return
         
-        
+        print("================================== END OF THE FUNCTION ===================================")
         print("process cpu util in percentage is : ",p.cpu_times())
         print("process memory in percentage is : ", p.memory_info() )
         print("process memory in percentage is : ", p.cpu_percent(interval=1.0) )
@@ -72,8 +76,16 @@ g.add_edge(3, 2, 2)
 
 pid = os.getpid()
 p = psutil.Process(pid)
+
+print("================================== BEFORE START OF THE PROGRAM ===================================")
 print("process cpu util in percentage is : ",p.cpu_times())
 print("process memory in percentage is : ", p.memory_info() )
 print("process memory in percentage is : ", p.cpu_percent(interval=1.0) )
-
+import time
+start_time = time.time()
 g.bellman_ford(0,p)
+print("================================== TOTAL RUNNING TIMEPROGRAM ===================================")
+print("--- %s seconds ---" % (time.time() - start_time))
+print("================================== END OF THE PROGRAM ===================================")
+
+

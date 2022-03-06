@@ -28,21 +28,22 @@ def main():
         G[i][i] = 0
 
     #print("For each edge (U -> V) \n\nU V W")
-    for i in range(5):
-        for j in range(5):
-            ux=number = random.randint(i,5)
-            uy=number = random.randint(j,5)
-            uz=number = random.randint(1,100)
+    for i in range(100):
+        for j in range(100):
+            ux = i
+            uy = j
+            uz = random.randint(-100,100)
             u, v, w =  ux,uy,uz
             G[u-1][v-1] = w
+            print("" + str(i)+"-"+str(j) +" : " + str(G[u-1][v-1]))
 
-    sp = FloydWarshall(G, n)
-    print("\nU -> V : W")
-    for i in range(n):
-        for j in range(n):
-            if(i!=j):
-                print(f"{i+1} -> {j+1} : {sp[i][j]}")
-    print()
+    # sp = FloydWarshall(G, n)
+    # print("\nU -> V : W")
+    # for i in range(n):
+    #     for j in range(n):
+    #         if(i!=j):
+    #             print(f"{i+1} -> {j+1} : {sp[i][j]}")
+    # print()
 
 if __name__ == "__main__":
     main()
