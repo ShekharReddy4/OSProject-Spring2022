@@ -2,9 +2,12 @@
 
 make sure you have python3 isntalled
 
-cd OSPROJECT
-source bin/activate
+>cd OSProject
 
-python bellmanFord.py
-python floydWarshall.py
-python profiling.py
+>source bin/activate
+
+>python bellmanFord.py
+
+>python floydWarshall.py
+
+>python profiling.py
