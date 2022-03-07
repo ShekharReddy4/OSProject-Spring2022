@@ -1,1 +1,1 @@
-[{"cpu times": 0.05, "voluntary ctx switch": 92, "RSS": 0.07, "VMS": 2437.04, "Pgfaults": 0.0, "memory%": 0.05, "HDUsage": 159, "timetaken": 0.000435}]
+[{"cpu times": 0.03, "voluntary ctx switch": 8, "RSS": 0.06, "VMS": 2435.37, "Pgfaults": 0.0, "memory%": 0.04, "HDUsage": 159, "timetaken": 0.000323}]

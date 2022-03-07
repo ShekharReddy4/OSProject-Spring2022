@@ -1,9 +1,1 @@
-data=[
-    { "y": "26", "name": "School Aid", "exploded": true },
-    { "y": "20", "name": "Medical Aid" },
-    { "y": "5", "name": "Debt/Capital" },
-    { "y": "3", "name": "Elected Officials" },
-    { "y": "7", "name": "University" },
-    { "y": "17", "name": "Executive" },
-    { "y": "22", "name": "Other Local Assistance"}
-]
+[{"cpu times": 0.04, "voluntary ctx switch": 13, "RSS": 0.07, "VMS": 2437.04, "Pgfaults": 0.0, "memory%": 0.05, "HDUsage": 159, "timetaken": 0.000834}]

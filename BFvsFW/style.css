@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: auto;
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -75,4 +75,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 .filter__link.asc::after {
   content: "(asc)";
+}
+
+
+
+.tablee {
+  width: 100%;
+  border: 1px solid #EEEEEE;
+}
+
+.table-headerr {
+  display: flex;
+  width: 100%;
+  background: #000;
+  padding: 18px 0;
+}
+
+.table-roww {
+  display: flex;
+  width: 100%;
+  padding: 18px 0;
+}
+.table-roww:nth-of-type(odd) {
+  background: #EEEEEE;
+}
+
+.table-dataa, .header__itemm {
+  flex: 1 1 20%;
+  text-align: center;
+}
+
+.header__itemm {
+  text-transform: uppercase;
 }

@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <script type="text/javascript" src="../data/newbdata.json"></script>
+  <script type="text/javascript" src="../data/newfdata.json"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <title>Bellman Ford</title>
+  <title>Bellman Ford vs FloydWarshall</title>
   <link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 
-<h2 style="text-align: center;">Bellman Ford - System and User level usage Information</h2>
+<h2 style="text-align: center;">Bellman Ford vs FloydWarshall - System and User level usage Information</h2>
 <div class="container">
 	
 	<div class="table">
@@ -57,9 +58,59 @@
 				<div class="table-data">Number</div>
 			</div>
 			<div class="table-row">
-				<div class="table-data">Context Switches</div>
+				<div class="table-data">Time taken to Execute</div>
 				<div id="timetaken-value" class="table-data"><script>data[0]["timetaken"]</script></div>
 				<div class="table-data">Sec</div>
+			</div>
+		</div>	
+	</div>
+	<div class="table">
+		<div class="table-headerr">
+			<div class="header__itemm"><a id="name" class="filter__link" href="#">Name</a></div>
+			<div class="header__itemm"><a id="value" class="filter__link filter__link--number" href="#">value</a></div>
+			<div class="header__itemm"><a id="metric" class="filter__link filter__link--number" href="#">metric</a></div>
+			
+		</div>
+		<div id="tablecontentt" class="table-contentt">	
+			<div class="table-roww">
+				<div class="table-dataa">CPU usage</div>
+				<div id="cpu-valuee" class="table-dataa"></div>
+				<div class="table-dataa">times</div>
+			</div>
+			<div class="table-roww">
+				<div class="table-dataa">Memory usage</div>
+				<div id="memory-valuee" class="table-dataa"></div>
+				<div class="table-dataa">%</div>
+			</div>
+			<div class="table-roww">
+				<div class="table-dataa">HardDrive Usage</div>
+				<div id="hdusage-valuee" class="table-dataa"></div>
+				<div class="table-dataa">Gb</div>
+			</div>
+			<div class="table-roww">
+				<div class="table-dataa">RSS</div>
+				<div id="rss-valuee" class="table-dataa"></div>
+				<div class="table-dataa">%</div>
+			</div>
+			<div class="table-roww">
+				<div class="table-dataa">VMS</div>
+				<div id="vms-valuee" class="table-dataa"></div>
+				<div class="table-dataa">%</div>
+			</div>
+			<div class="table-roww">
+				<div class="table-dataa">Page Faults</div>
+				<div id="pfaults-valuee" class="table-dataa"></div>
+				<div class="table-dataa">Number</div>
+			</div>
+			<div class="table-roww">
+				<div class="table-dataa">Context Switches</div>
+				<div id="ctxswitches-valuee" class="table-dataa"></div>
+				<div class="table-dataa">Number</div>
+			</div>
+			<div class="table-roww">
+				<div class="table-dataa">Time taken to Execute</div>
+				<div id="timetaken-valuee" class="table-dataa"></div>
+				<div class="table-dataa">Sec</div>
 			</div>
 		</div>	
 	</div>
@@ -69,8 +120,7 @@
   <script>
 	
 	window.onload = function(){
-		var divtablerow = '<div class="table-row">	<div class="table-data">data[0]["RSS"]</div><div class="table-data">data[0]["RSS"]</div><div class="table-data">data[0]["RSS"]</div></div>';
-
+		
 		document.getElementById('cpu-value').innerHTML = data[0]["cpu times"];
 		document.getElementById('vms-value').innerHTML = data[0]["VMS"];
 		document.getElementById('rss-value').innerHTML = data[0]["RSS"];
@@ -79,6 +129,15 @@
 		document.getElementById('pfaults-value').innerHTML = data[0]["Pgfaults"];
 		document.getElementById('ctxswitches-value').innerHTML = data[0]["voluntary ctx switch"];
 		document.getElementById('timetaken-value').innerHTML = data[0]["timetaken"];
+
+		document.getElementById('cpu-valuee').innerHTML = fdata[0]["cpu times"];
+		document.getElementById('vms-valuee').innerHTML = fdata[0]["VMS"];
+		document.getElementById('rss-valuee').innerHTML = fdata[0]["RSS"];
+		document.getElementById('memory-valuee').innerHTML = fdata[0]["memory%"];
+		document.getElementById('hdusage-valuee').innerHTML = fdata[0]["HDUsage"];
+		document.getElementById('pfaults-valuee').innerHTML = fdata[0]["Pgfaults"];
+		document.getElementById('ctxswitches-valuee').innerHTML = fdata[0]["voluntary ctx switch"];
+		document.getElementById('timetaken-valuee').innerHTML = fdata[0]["timetaken"];
 
 	};
 </script>
