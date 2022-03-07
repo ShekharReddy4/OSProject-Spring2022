@@ -2,7 +2,9 @@
 
 ## make sure you have python3 isntalled
 
-> cd OSProject
+unzip the file
+
+> cd OSProject-Spring2022
 
 > source bin/activate
 
