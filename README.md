@@ -11,3 +11,5 @@
 > python floydWarshall.py
 
 > python profiling.py
+
+Open ./BFvsFW/index.html in browser
