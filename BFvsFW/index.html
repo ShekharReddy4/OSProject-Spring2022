@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../data/newbdata.json"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <title>Bellman Ford</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<h2 style="text-align: center;">Bellman Ford - System and User level usage Information</h2>
+<div class="container">
+	
+	<div class="table">
+		<div class="table-header">
+			<div class="header__item"><a id="name" class="filter__link" href="#">Name</a></div>
+			<div class="header__item"><a id="value" class="filter__link filter__link--number" href="#">value</a></div>
+			<div class="header__item"><a id="metric" class="filter__link filter__link--number" href="#">metric</a></div>
+			
+		</div>
+		<div id="tablecontent" class="table-content">	
+			<div class="table-row">
+				<div class="table-data">CPU usage</div>
+				<div id="cpu-value" class="table-data"><script>data[0]["cpu times"]</script></div>
+				<div class="table-data">times</div>
+			</div>
+			<div class="table-row">
+				<div class="table-data">Memory usage</div>
+				<div id="memory-value" class="table-data"><script></script></div>
+				<div class="table-data">%</div>
+			</div>
+			<div class="table-row">
+				<div class="table-data">HardDrive Usage</div>
+				<div id="hdusage-value" class="table-data"><script>data[0]["HDUsage"]</script></div>
+				<div class="table-data">Gb</div>
+			</div>
+			<div class="table-row">
+				<div class="table-data">RSS</div>
+				<div id="rss-value" class="table-data"><script>data[0]["RSS"]</script></div>
+				<div class="table-data">%</div>
+			</div>
+			<div class="table-row">
+				<div class="table-data">VMS</div>
+				<div id="vms-value" class="table-data"><script>data[0]["VMS"]</script></div>
+				<div class="table-data">%</div>
+			</div>
+			<div class="table-row">
+				<div class="table-data">Page Faults</div>
+				<div id="pfaults-value" class="table-data"><script>data[0]["Pgfaults"]</script></div>
+				<div class="table-data">Number</div>
+			</div>
+			<div class="table-row">
+				<div class="table-data">Context Switches</div>
+				<div id="ctxswitches-value" class="table-data"><script>data[0]["voluntary ctx switch"]</script></div>
+				<div class="table-data">Number</div>
+			</div>
+			<div class="table-row">
+				<div class="table-data">Context Switches</div>
+				<div id="timetaken-value" class="table-data"><script>data[0]["timetaken"]</script></div>
+				<div class="table-data">Sec</div>
+			</div>
+		</div>	
+	</div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./script.js"></script>
+  <script>
+	
+	window.onload = function(){
+		var divtablerow = '<div class="table-row">	<div class="table-data">data[0]["RSS"]</div><div class="table-data">data[0]["RSS"]</div><div class="table-data">data[0]["RSS"]</div></div>';
+
+		document.getElementById('cpu-value').innerHTML = data[0]["cpu times"];
+		document.getElementById('vms-value').innerHTML = data[0]["VMS"];
+		document.getElementById('rss-value').innerHTML = data[0]["RSS"];
+		document.getElementById('memory-value').innerHTML = data[0]["memory%"];
+		document.getElementById('hdusage-value').innerHTML = data[0]["HDUsage"];
+		document.getElementById('pfaults-value').innerHTML = data[0]["Pgfaults"];
+		document.getElementById('ctxswitches-value').innerHTML = data[0]["voluntary ctx switch"];
+		document.getElementById('timetaken-value').innerHTML = data[0]["timetaken"];
+
+	};
+</script>
+</body>
+</html>
