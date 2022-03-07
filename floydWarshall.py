@@ -33,7 +33,7 @@ def osinfo(p):
     #print("=====================================================================")
     #print("process memory in percentage is : ",  )
     total, used, free = shutil.disk_usage("/")
-    data[0]["HDUsage"]= (used // (2**30))
+    data[0]["HDUsage"]= (0)
 
 def insert(originalfile,string):
     with open(originalfile,'r') as f:
@@ -43,7 +43,7 @@ def insert(originalfile,string):
 
 def FloydWarshall(G, n, p):
     start_time = time.time()
-    print("================================== START OF THE FUNCTION ===================================")
+    print("================================== START OF FLOYDWARSHALL ALGORITHM ===================================")
     W = [[[math.inf for j in range(n)] for i in range(n)] for k in range(n+1)]
 
     for i in range(n):
@@ -60,9 +60,9 @@ def FloydWarshall(G, n, p):
     data[0]['timetaken'] = round(timetaken,6)
     with open('./data/fdata.json', 'w') as f:
         json.dump(data, f)
+    print("================================== End OF FLOYDWARSHALL ALGORITHM ===================================")
 
     return W[n]
-
 
 def main():
     pid = os.getpid()

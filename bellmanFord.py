@@ -1,5 +1,6 @@
 # Bellman Ford Algorithm in Python
 import os
+import random
 import psutil
 import shutil
 import json
@@ -51,7 +52,7 @@ class Graph:
         #print("=====================================================================")
         #print("process memory in percentage is : ",  )
         total, used, free = shutil.disk_usage("/")
-        self.data[0]["HDUsage"]= (used // (2**30))
+        self.data[0]["HDUsage"]= (0)
         
         
 
@@ -62,7 +63,7 @@ class Graph:
     
     def bellman_ford(self, src, p):
         start_time = time.time()
-        print("================================== START OF THE FUNCTION ===================================")
+        print("================================== START OF BELLMANFORD ALGORITHM ===================================")
 
         # Step 1: fill the distance array and predecessor array
         dist = [float("Inf")] * self.V
@@ -82,6 +83,7 @@ class Graph:
             if dist[s] != float("Inf") and dist[s] + w < dist[d]:
                 print("Graph contains negative weight cycle")
                 return
+        print("================================== END OF BELLMANFORD ALGORITHM ===================================")
         self.osinfo(p)
         # print("================================== END OF THE FUNCTION ===================================")
         # print("process cpu util in percentage is : ",p.cpu_times())
@@ -93,12 +95,20 @@ class Graph:
         with open('./data/bdata.json', 'w') as f:
             json.dump(self.data, f)
 
-g = Graph(5)
-g.add_edge(0, 1, 5)
-g.add_edge(0, 2, -4)
-g.add_edge(1, 3, 3)
-g.add_edge(2, 1, 6)
-g.add_edge(3, 2, 2)
+
+# g.add_edge(0, 1, 5)
+# g.add_edge(0, 2, -4)
+# g.add_edge(1, 3, 3)
+# g.add_edge(2, 1, 6)
+# g.add_edge(3, 2, 2)
+n=10
+g = Graph(n)
+for x in range(1, n+1):
+    for y in range(1, n+1):
+        #x = random.randint(-100,100)
+        u, v, = x, y
+        w = random.randint(1,100)
+        g.add_edge(u-1, v-1, w)
 
 pid = os.getpid()
 p = psutil.Process(pid)
